@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package emicalculator;
+option go_package = "emi-calculator/emicalculatorpb";
+
+// EMICalculatorRequest includes required parameters to calculate monthly EMI.
+message EMICalculatorRequest {
+    double down_payment = 1;
+    double total_amount = 2;
+    float interest_rate = 3;
+    float property_taxes = 4;
+    float property_transfer_taxes = 5;
+    int32 years_expected_to_live = 6;
+}
+
+// EMICalculatorResponse includes monthly EMI value.
+message EMICalculatorResponse {
+    float monthly_emi = 1;
+}
+
+// EMICalculatorService defines service function to calculate monthly EMI.
+service EMICalculatorService {
+    rpc CalculateEMI(EMICalculatorRequest) returns(EMICalculatorResponse){};
+}
