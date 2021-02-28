@@ -1,0 +1,18 @@
+version : '3.3'
+services:
+  server:
+    image: grpc-server
+    build:
+        context: .
+        dockerfile: emicalculator_server/build/Dockerfile
+    ports:
+      - "5300:5300"
+  client:
+    image: grpc-client
+    build:
+      context: .
+      dockerfile: emicalculator_client/build/Dockerfile
+    ports:
+      - "5200:5200"
+    depends_on:
+      - server
