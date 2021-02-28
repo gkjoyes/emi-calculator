@@ -29,7 +29,7 @@ func (*server) CalculateEMI(ctx context.Context, req *emicalculatorpb.EMICalcula
 func main() {
 
 	// Listen on port 50051(default gRPC port).
-	listen, err := net.Listen("tcp", "0.0.0.0:5300")
+	listen, err := net.Listen("tcp", ":5300")
 	if err != nil {
 		log.Fatalf("failed to listen port 5300: %v\n", err)
 	}
