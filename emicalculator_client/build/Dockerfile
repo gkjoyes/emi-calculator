@@ -8,7 +8,6 @@ WORKDIR /go/src/github.com/gkjoyes/emi-calculator
 
 # Install dependencies.
 RUN go get -u google.golang.org/grpc
-RUN go get -u github.com/golang/protobuf/protoc-gen-go
 
 # Copy source code to the container.
 COPY emicalculator_client/client.go ./
